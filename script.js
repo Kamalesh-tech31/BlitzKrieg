@@ -543,7 +543,7 @@ function setupHeroParallax() {
 function setupAmbientExperience() {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const ambient = document.getElementById('ambientBackground');
-  const animatedNodes = document.querySelectorAll('.bg-blur, .particle-field i, .floating-card, .flash-sale, .main-product');
+  const animatedNodes = document.querySelectorAll('.ambient-mesh, .aurora-ribbon, .light-sweep, .particle-field i, .floating-card, .flash-sale, .main-product');
 
   const setAnimationState = () => {
     const playState = document.hidden || reducedMotion.matches ? 'paused' : 'running';
@@ -587,9 +587,16 @@ function setupAmbientExperience() {
   }
 
   if (!ambient || reducedMotion.matches) return;
+  const mesh = ambient.querySelector('.ambient-mesh');
+  const ribbons = ambient.querySelectorAll('.aurora-ribbon');
+  const particles = ambient.querySelector('.particle-field');
   let framePending = false;
   const applyScrollDepth = () => {
-    ambient.style.setProperty('--parallax-y', `${Math.min(window.scrollY * -0.025, 42)}px`);
+    const scroll = Math.min(window.scrollY, 1800);
+    ambient.style.setProperty('--parallax-y', `${scroll * -0.012}px`);
+    if (mesh) mesh.style.setProperty('--mesh-depth', `${scroll * -0.008}px`);
+    ribbons.forEach((ribbon, index) => ribbon.style.setProperty('--ribbon-depth-y', `${scroll * -(0.014 + index * 0.004)}px`));
+    if (particles) particles.style.setProperty('--particle-depth-y', `${scroll * -0.02}px`);
     framePending = false;
   };
   window.addEventListener('scroll', () => {
@@ -601,8 +608,14 @@ function setupAmbientExperience() {
     window.addEventListener('pointermove', event => {
       const x = (event.clientX / window.innerWidth - .5) * 12;
       const y = (event.clientY / window.innerHeight - .5) * 10;
-      ambient.style.setProperty('--parallax-x', `${x}px`);
-      ambient.style.setProperty('--parallax-y', `${y + Math.min(window.scrollY * -0.025, 42)}px`);
+      ribbons.forEach((ribbon, index) => {
+        ribbon.style.setProperty('--ribbon-depth-x', `${-x * (0.7 + index * 0.12)}px`);
+        ribbon.style.setProperty('--ribbon-depth-y', `${-y * .5 - Math.min(window.scrollY, 1800) * (0.014 + index * 0.004)}px`);
+      });
+      if (particles) {
+        particles.style.setProperty('--particle-depth-x', `${-x * 1.1}px`);
+        particles.style.setProperty('--particle-depth-y', `${-y * .8 - Math.min(window.scrollY, 1800) * .02}px`);
+      }
     }, { passive: true });
   }
 }
