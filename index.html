@@ -2,811 +2,374 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlitzKrieg | Next-Gen Spatial Shopping Experience</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <title>BlitzKrieg | Premium Shopping Experience</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  >
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  >
-
-  <link
-    rel="stylesheet"
-    href="styles.css"
-  >
-
+  <!-- Spatial Glassmorphism Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+  <!-- Persistent ambient space background -->
+  <div class="ambient-background" id="ambientBackground" aria-hidden="true">
+    <div class="ambient-grid"></div>
+    <div class="bg-blur blur-1"></div>
+    <div class="bg-blur blur-2"></div>
+    <div class="bg-blur blur-3"></div>
+    <div class="particle-field">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i>
+    </div>
+  </div>
 
-  <div class="bg-blur blur-1"></div>
-  <div class="bg-blur blur-2"></div>
-
-
+  <!-- Spatial Toast Notification -->
   <div id="toast"></div>
 
-
+  <!-- FLOATING NAVBAR (Auth Removed; Hidden on Mobile) -->
   <header class="navbar">
-
-    <div class="logo">
-
-      <i class="fa-solid fa-bolt"></i>
-
+    <a href="#home" class="logo">
+      <div class="logo-icon-wrapper">
+        <i class="fa-solid fa-bolt"></i>
+      </div>
       <span>BlitzKrieg</span>
-
-    </div>
+    </a>
 
     <nav>
-
       <ul>
-
-        <li>
-          <a href="#home">Home</a>
-        </li>
-
-        <li>
-          <a href="#products">Products</a>
-        </li>
-
-        <li>
-          <a href="#features">Features</a>
-        </li>
-
-        <li>
-          <a href="#dashboard">Dashboard</a>
-        </li>
-
-        <li>
-          <a href="#about">About</a>
-        </li>
-
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#about">About</a></li>
       </ul>
-
     </nav>
-
-    <div class="nav-actions">
-
-      <button
-        class="ghost-btn"
-        id="openLogin"
-      >
-
-        <i class="fa-solid fa-user"></i>
-
-        Login
-
-      </button>
-
-      <button
-        class="primary-btn"
-        id="openRegister"
-      >
-
-        Register
-
-      </button>
-
-    </div>
-
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION (Locked Desktop/Laptop 2-Column Composition) -->
+  <section class="hero" id="home">
+    <div class="hero-container">
 
-  <section
-    class="hero"
-    id="home"
-  >
+      <!-- LEFT CONTENT -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-bolt"></i>
+          Fast Delivery • Premium Products • Smart Shopping
+        </div>
 
-    <!-- LEFT -->
+        <h1>
+          Premium Shopping At <span>Lightning speed</span> With <span>BlitzKrieg</span>
+        </h1>
 
-    <div class="hero-content">
+        <p>
+          BlitzKrieg delivers premium gadgets, fashion and accessories with lightning-fast
+          shopping experience, immersive interactions and futuristic product discovery.
+        </p>
 
-      <div class="hero-badge">
+        <div class="hero-buttons">
+          <a href="#products" class="primary-btn">
+            Explore Products
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#dashboard" class="secondary-btn">
+            View Dashboard
+          </a>
+        </div>
 
-        <i class="fa-solid fa-bolt"></i>
-
-         Fast Delivery • Premium Products • Smart Shopping
-
+        <!-- STATS -->
+        <div class="hero-stats">
+          <div class="stat-card">
+            <h2>25K+</h2>
+            <p>Happy Customers</p>
+          </div>
+          <div class="stat-card">
+            <h2>10K+</h2>
+            <p>Orders Delivered</p>
+          </div>
+          <div class="stat-card">
+            <h2>4.9★</h2>
+            <p>Customer Rating</p>
+          </div>
+        </div>
       </div>
 
-      <h1>
+      <!-- RIGHT VISUAL (Spatial 3D Showcase) -->
+      <div class="hero-visual">
+        <div class="showcase-container" id="heroShowcase">
+          <div class="flash-sale">
+            ⚡ FLASH SALE 50% OFF
+          </div>
 
-        Premium Shopping At <span>Lightning speed</span> With
+          <div class="main-product-wrapper">
+            <img 
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop" 
+              alt="BlitzKrieg Hero Product"
+              class="main-product"
+            >
+          </div>
 
-        <span>BlitzKrieg</span>
+          <!-- FLOATING GLASS BADGES -->
+          <div class="floating-card card-1">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>Free Express Delivery</span>
+          </div>
 
-      </h1>
+          <div class="floating-card card-2">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Secure Checkout</span>
+          </div>
 
-      <p>
-
-        BlitzKrieg delivers premium gadgets,
-        fashion and accessories with lightning-fast
-        shopping experience, immersive interactions
-        and futuristic product discovery.
-
-      </p>
-
-      <div class="hero-buttons">
-
-        <a
-          href="#products"
-          class="primary-btn"
-        >
-          Explore Products
-        </a>
-
-        <a
-          href="#dashboard"
-          class="secondary-btn"
-        >
-          View Dashboard
-        </a>
-
-      </div>
-
-      <!-- STATS -->
-
-      <div class="hero-stats">
-
-        <div class="stat-card">
-
-          <h2>25K+</h2>
-
-          <p>Happy Customers</p>
-
+          <div class="floating-card card-3">
+            <i class="fa-solid fa-star"></i>
+            <span>Premium Quality</span>
+          </div>
         </div>
-
-        <div class="stat-card">
-
-          <h2>10K+</h2>
-
-          <p>Orders Delivered</p>
-
-        </div>
-
-        <div class="stat-card">
-
-          <h2>4.9★</h2>
-
-          <p>Customer Rating</p>
-
-        </div>
-
       </div>
 
     </div>
-
-    <!-- RIGHT -->
-
-    <div class="hero-visual">
-
-      <div class="showcase-container">
-
-        <!-- FLASH SALE -->
-
-        <div class="flash-sale">
-
-          ⚡ FLASH SALE 50% OFF
-
-        </div>
-
-        <!-- MAIN PRODUCT -->
-
-        <img
-          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop"
-          class="main-product"
-        >
-
-        <!-- FLOATING CARDS -->
-
-        <div class="floating-card card-1">
-
-          <i class="fa-solid fa-truck-fast"></i>
-
-          Free Express Delivery
-
-        </div>
-
-        <div class="floating-card card-2">
-
-          <i class="fa-solid fa-shield-halved"></i>
-
-          Secure Checkout
-
-        </div>
-
-        <div class="floating-card card-3">
-
-          <i class="fa-solid fa-star"></i>
-
-          Premium Quality
-
-        </div>
-
-      </div>
-
-    </div>
-
   </section>
 
-  <!-- FEATURES -->
-
-  <section
-    class="features"
-    id="features"
-  >
-
+  <!-- FEATURES SECTION -->
+  <section class="features" id="features">
     <div class="section-title">
-
       <span>PREMIUM FEATURES</span>
-
-      <h2>
-        Designed For Modern Shopping
-      </h2>
-
+      <h2>Designed For Modern Shopping</h2>
       <p>
-
-        BlitzKrieg combines immersive UI,
-        futuristic interactions and seamless
-        user experience into one premium
-        e-commerce platform.
-
+        BlitzKrieg combines immersive UI, futuristic interactions and seamless
+        user experience into one premium e-commerce platform.
       </p>
-
     </div>
 
     <div class="feature-grid">
-
-      <!-- CARD -->
-
+      <!-- CARD 1 -->
       <div class="feature-card">
-
         <div class="feature-icon">
-
           <i class="fa-solid fa-heart"></i>
-
         </div>
-
         <h3>Wishlist Tracking</h3>
-
-        <p>
-
-          Save products instantly and
-          manage your favourite items
-          with smooth interactive cards.
-
-        </p>
-
+        <p>Save products instantly and manage your favourite items with smooth interactive cards.</p>
       </div>
 
-      <!-- CARD -->
-
+      <!-- CARD 2 -->
       <div class="feature-card">
-
         <div class="feature-icon">
-
           <i class="fa-solid fa-cart-shopping"></i>
-
         </div>
-
         <h3>Smart Orders</h3>
-
-        <p>
-
-          Place instant demo orders
-          with sleek status tracking
-          and expressive UI interactions.
-
-        </p>
-
+        <p>Place instant demo orders with sleek status tracking and expressive UI interactions.</p>
       </div>
 
-      <!-- CARD -->
-
+      <!-- CARD 3 -->
       <div class="feature-card">
-
         <div class="feature-icon">
-
           <i class="fa-solid fa-star"></i>
-
         </div>
-
         <h3>Product Reviews</h3>
-
-        <p>
-
-          Share reviews and ratings
-          through immersive review
-          components and animations.
-
-        </p>
-
+        <p>Share reviews and ratings through immersive review components and animations.</p>
       </div>
 
-      <!-- CARD -->
-
+      <!-- CARD 4 -->
       <div class="feature-card">
-
         <div class="feature-icon">
-
           <i class="fa-solid fa-headset"></i>
+        </div>
+        <h3>Customer Support</h3>
+        <p>Raise customer care requests with responsive support UI and easy tracking system.</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- PRODUCTS SECTION -->
+  <section class="products-section" id="products">
+    <div class="section-title">
+      <span>TRENDING PRODUCTS</span>
+      <h2>Explore Premium Collection</h2>
+      <p>
+        Browse premium gadgets and futuristic products with modern product interactions and immersive UI.
+      </p>
+    </div>
+
+    <!-- SEARCH BOX -->
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" placeholder="Search products by name...">
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <!-- DASHBOARD SECTION -->
+  <section class="dashboard" id="dashboard">
+    <div class="section-title">
+      <span>USER DASHBOARD</span>
+      <h2>Manage Your Shopping</h2>
+    </div>
+
+    <!-- TAB BUTTONS -->
+    <div class="dashboard-buttons">
+      <button class="dashboard-btn active-dashboard" data-target="orders">Orders</button>
+      <button class="dashboard-btn" data-target="wishlist">Wishlist</button>
+      <button class="dashboard-btn" data-target="reviews">Reviews</button>
+      <button class="dashboard-btn" data-target="support">Customer Care</button>
+      <button class="dashboard-btn" data-target="reports">Reports</button>
+    </div>
+
+    <!-- ORDERS PANEL -->
+    <div class="dashboard-card section-panel" id="orders">
+      <h3>Your Orders</h3>
+      <div id="ordersList"></div>
+    </div>
+
+    <!-- WISHLIST PANEL -->
+    <div class="dashboard-card section-panel hidden" id="wishlist">
+      <h3>Your Wishlist</h3>
+      <div id="wishlistList"></div>
+    </div>
+
+    <!-- REVIEWS PANEL (With Restyled Custom Glass Dropdown) -->
+    <div class="dashboard-card section-panel hidden" id="reviews">
+      <h3>Reviews</h3>
+      <form id="reviewForm" class="form-grid">
+        
+        <!-- Custom Glass Select for Review Product -->
+        <div class="glass-select-wrapper" id="reviewProductWrapper">
+          <input type="hidden" id="reviewProduct" required>
+          <div class="glass-select-trigger" tabindex="0">
+            <span class="selected-text">Select Product...</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="glass-select-menu" id="reviewProductOptions"></div>
         </div>
 
-        <h3>Customer Support</h3>
+        <input type="number" min="1" max="5" id="reviewRating" placeholder="Rating (1 to 5)" required>
+        <textarea id="reviewComment" placeholder="Write review..." required></textarea>
 
-        <p>
-
-          Raise customer care requests
-          with responsive support UI
-          and easy tracking system.
-
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- PRODUCTS -->
-
-  <section
-    class="products-section"
-    id="products"
-  >
-
-    <div class="section-title">
-
-      <span>TRENDING PRODUCTS</span>
-
-      <h2>Explore Premium Collection</h2>
-
-      <p>
-
-        Browse premium gadgets and
-        futuristic products with modern
-        product interactions and immersive UI.
-
-      </p>
-
-    </div>
-
-    <!-- SEARCH -->
-
-    <div class="search-box">
-
-      <i class="fa-solid fa-magnifying-glass"></i>
-
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search products..."
-      >
-
-    </div>
-
-    <!-- PRODUCTS -->
-
-    <div
-      class="product-grid"
-      id="productGrid"
-    ></div>
-
-  </section>
-
-  <!-- DASHBOARD -->
-
-  <section
-    class="dashboard"
-    id="dashboard"
-  >
-
-    <div class="section-title">
-
-      <span>USER DASHBOARD</span>
-
-      <h2>Manage Your Shopping</h2>
-
-    </div>
-
-    <!-- BUTTONS -->
-
-    <div class="dashboard-buttons">
-
-      <button
-        class="dashboard-btn active-dashboard"
-        data-target="orders"
-      >
-        Orders
-      </button>
-
-      <button
-        class="dashboard-btn"
-        data-target="wishlist"
-      >
-        Wishlist
-      </button>
-
-      <button
-        class="dashboard-btn"
-        data-target="reviews"
-      >
-        Reviews
-      </button>
-
-      <button
-        class="dashboard-btn"
-        data-target="support"
-      >
-        Customer Care
-      </button>
-
-      <button
-        class="dashboard-btn"
-        data-target="reports"
-      >
-        Reports
-      </button>
-
-    </div>
-
-    <!-- ORDERS -->
-
-    <div
-      class="dashboard-card section-panel"
-      id="orders"
-    >
-
-      <h3>Your Orders</h3>
-
-      <div id="ordersList"></div>
-
-    </div>
-
-    <!-- WISHLIST -->
-
-    <div
-      class="dashboard-card section-panel hidden"
-      id="wishlist"
-    >
-
-      <h3>Your Wishlist</h3>
-
-      <div id="wishlistList"></div>
-
-    </div>
-
-    <!-- REVIEWS -->
-
-    <div
-      class="dashboard-card section-panel hidden"
-      id="reviews"
-    >
-
-      <h3>Reviews</h3>
-
-      <form
-        id="reviewForm"
-        class="form-grid"
-      >
-
-        <select id="reviewProduct"></select>
-
-        <input
-          type="number"
-          min="1"
-          max="5"
-          id="reviewRating"
-          placeholder="Rating"
-        >
-
-        <textarea
-          id="reviewComment"
-          placeholder="Write review..."
-        ></textarea>
-
-        <button
-          type="submit"
-          class="primary-btn full-btn"
-        >
-
+        <button type="submit" class="primary-btn full-btn">
           Submit Review
-
         </button>
-
       </form>
 
       <div id="reviewsList"></div>
-
     </div>
 
-    <!-- SUPPORT -->
-
-    <div
-      class="dashboard-card section-panel hidden"
-      id="support"
-    >
-
+    <!-- SUPPORT PANEL -->
+    <div class="dashboard-card section-panel hidden" id="support">
       <h3>Customer Support</h3>
+      <form id="supportForm" class="form-grid">
+        <input type="text" id="supportName" placeholder="Full Name" required>
+        <input type="email" id="supportEmail" placeholder="Email Address" required>
+        <textarea id="supportMessage" placeholder="Describe issue..." required></textarea>
 
-      <form
-        id="supportForm"
-        class="form-grid"
-      >
-
-        <input
-          type="text"
-          id="supportName"
-          placeholder="Full Name"
-          required
-        >
-
-        <input
-          type="email"
-          id="supportEmail"
-          placeholder="Email"
-          required
-        >
-
-        <textarea
-          id="supportMessage"
-          placeholder="Describe issue..."
-        ></textarea>
-
-        <button
-          class="primary-btn full-btn"
-        >
-
+        <button type="submit" class="primary-btn full-btn">
           Submit Query
-
         </button>
-
       </form>
 
       <div id="supportList"></div>
-
     </div>
 
-    <!-- REPORTS -->
-
-    <div
-      class="dashboard-card section-panel hidden"
-      id="reports"
-    >
-
+    <!-- REPORTS PANEL (With Restyled Custom Glass Dropdowns) -->
+    <div class="dashboard-card section-panel hidden" id="reports">
       <h3>Report Product</h3>
+      <form id="reportForm" class="form-grid">
+        
+        <!-- Custom Glass Select for Report Product -->
+        <div class="glass-select-wrapper" id="reportProductWrapper">
+          <input type="hidden" id="reportProduct" required>
+          <div class="glass-select-trigger" tabindex="0">
+            <span class="selected-text">Select Product...</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="glass-select-menu" id="reportProductOptions"></div>
+        </div>
 
-      <form
-        id="reportForm"
-        class="form-grid"
-      >
+        <!-- Custom Glass Select for Report Issue -->
+        <div class="glass-select-wrapper" id="reportIssueWrapper">
+          <input type="hidden" id="reportIssue" value="Incorrect Product">
+          <div class="glass-select-trigger" tabindex="0">
+            <span class="selected-text">Incorrect Product</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="glass-select-menu">
+            <div class="glass-select-option selected" data-value="Incorrect Product">Incorrect Product</div>
+            <div class="glass-select-option" data-value="Damaged Product">Damaged Product</div>
+            <div class="glass-select-option" data-value="Fraud Seller">Fraud Seller</div>
+            <div class="glass-select-option" data-value="Other">Other</div>
+          </div>
+        </div>
 
-        <select id="reportProduct"></select>
+        <textarea id="reportDetails" placeholder="Describe issue in detail..." required></textarea>
 
-        <select id="reportIssue">
-
-          <option>Incorrect Product</option>
-
-          <option>Damaged Product</option>
-
-          <option>Fraud Seller</option>
-
-          <option>Other</option>
-
-        </select>
-
-        <textarea
-          id="reportDetails"
-          placeholder="Describe issue..."
-        ></textarea>
-
-        <button
-          class="primary-btn full-btn"
-        >
-
+        <button type="submit" class="primary-btn full-btn">
           Submit Report
-
         </button>
-
       </form>
 
       <div id="reportList"></div>
-
     </div>
-
   </section>
 
-  <!-- ABOUT -->
-
-  <section
-    class="about"
-    id="about"
-  >
-
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
     <div class="about-card">
-
       <div class="section-title">
-
         <span>ABOUT BLITZKRIEG</span>
-
-        <h2>
-          Next Generation Shopping Platform
-        </h2>
+        <h2>Next Generation Shopping Platform</h2>
       </div>
+
       <div class="about-content">
         <p>
-          BlitzKrieg is a futuristic e-commerce
-          portal developed using HTML, CSS
-          and JavaScript. The platform combines
-          immersive animations, interactive UI
-          and premium shopping experience
-          into one seamless web application.
+          BlitzKrieg is a futuristic e-commerce portal developed using modern web standards.
+          The platform combines spatial UI animations, interactive glass elements and a premium
+          shopping experience into one seamless web application.
         </p>
 
         <ul class="about-points">
-        <li>Smart wishlist and order management</li>
-        <li>Secure transactions and customer support</li>
-        <li>Fast delivery with premium shopping experience</li>
-    </ul>
-
+          <li><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 8px;"></i>Smart wishlist and order management</li>
+          <li><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 8px;"></i>Secure transactions and customer support</li>
+          <li><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 8px;"></i>Fast delivery with premium shopping experience</li>
+        </ul>
 
         <div class="about-stats">
+          <div class="about-mini-card">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h3>Fast Delivery</h3>
+            <p>Products delivered quickly with smart logistics system.</p>
+          </div>
 
-        <div class="about-mini-card">
+          <div class="about-mini-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Secure Shopping</h3>
+            <p>Protected transactions and reliable customer support.</p>
+          </div>
 
-    <i class="fa-solid fa-truck-fast"></i>
-
-    <h3>Fast Delivery</h3>
-
-    <p>
-      Products delivered quickly
-      with smart logistics system.
-    </p>
-
-  </div>
-
-  <div class="about-mini-card">
-
-    <i class="fa-solid fa-shield-halved"></i>
-
-    <h3>Secure Shopping</h3>
-
-    <p>
-      Protected transactions and
-      reliable customer support.
-    </p>
-
-  </div>
-
-  <div class="about-mini-card">
-
-    <i class="fa-solid fa-star"></i>
-
-    <h3>Premium Experience</h3>
-
-    <p>
-      Futuristic UI and immersive
-      shopping interactions.
-    </p>
-
-  </div>
-
-</div>
-
+          <div class="about-mini-card">
+            <i class="fa-solid fa-star"></i>
+            <h3>Premium Experience</h3>
+            <p>Futuristic UI and immersive shopping interactions.</p>
+          </div>
+        </div>
       </div>
-
     </div>
-
   </section>
 
-  <!-- AUTH MODAL -->
-
-  <div
-    class="modal-backdrop"
-    id="modalBackdrop"
-  >
-
-    <div class="modal">
-
-      <div class="modal-header">
-
-        <h3 id="modalTitle">
-          Login
-        </h3>
-
-        <button id="closeModal">
-
-          <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-      </div>
-
-      <form
-        id="authForm"
-        class="form-grid"
-      >
-
-        <input
-          type="text"
-          id="authName"
-          placeholder="Full Name"
-          class="hidden"
-        >
-
-        <input
-          type="email"
-          id="authEmail"
-          placeholder="Email"
-        >
-
-        <input
-          type="password"
-          id="authPassword"
-          placeholder="Password"
-        >
-
-        <input
-          type="password"
-          id="authPassword2"
-          placeholder="Confirm Password"
-          class="hidden"
-        >
-
-        <button
-          type="submit"
-          class="primary-btn full-btn"
-          id="authSubmitBtn"
-        >
-
-          Login
-
-        </button>
-
-      </form>
-
-    </div>
-
-  </div>
-
   <!-- FOOTER -->
-
   <footer>
-
-    © 2026 BlitzKrieg.
-    Crafted with futuristic UI and premium web experience.
-
+    <p>© 2026 BlitzKrieg. Crafted with futuristic Glassmorphism & Spatial Web Experience.</p>
   </footer>
 
   <!-- SCRIPT -->
-
   <script src="script.js"></script>
-
 </body>
 
 </html>
