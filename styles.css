@@ -50,6 +50,23 @@
 
   /* Radius System */
   --radius-sm: 14px;
+
+  /* Glass Panels & Dropdowns */
+  --dropdown-bg: rgba(10, 16, 30, 0.88);
+  --dropdown-border: rgba(255, 255, 255, 0.12);
+
+  /* Typography */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+
+  /* Shadows & Glows */
+  --shadow-spatial: 0 30px 60px -12px rgba(0, 0, 0, 0.56), 0 18px 36px -18px rgba(0, 0, 0, 0.65);
+  --glow-pink: 0 10px 30px -5px rgba(255, 46, 99, 0.4);
+  --glow-cyan: 0 10px 30px -5px rgba(0, 242, 254, 0.3);
+
+  /* Radius System */
+  --radius-sm: 14px;
   --radius-md: 20px;
   --radius-lg: 28px;
   --radius-xl: 36px;
@@ -68,23 +85,20 @@
 body {
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   min-height: 100vh;
-  background: linear-gradient(126deg, var(--bg-deep-1) 0%, var(--bg-deep-2) 48%, var(--bg-deep-3) 100%);
+  background-color: var(--bg-deep-1);
+  background-image: 
+    radial-gradient(circle at 50% 15%, rgba(255, 46, 99, 0.25) 0%, transparent 55%),
+    radial-gradient(circle at 85% 40%, rgba(121, 40, 202, 0.18) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(5, 8, 22, 0.84) 0%, rgba(8, 17, 31, 0.88) 50%, rgba(13, 22, 39, 0.94) 100%),
+    url('bg-shopping.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--text-main);
   overflow-x: hidden;
   position: relative;
   line-height: 1.6;
-}
-
-.ambient-background {
-  --parallax-x: 0px;
-  --parallax-y: 0px;
-  position: fixed;
-  inset: -5%;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-  transform: translate3d(var(--parallax-x), var(--parallax-y), 0);
-  will-change: transform;
 }
 
 .ambient-mesh, .ambient-grid, .aurora-ribbon, .light-sweep, .ambient-vignette, .particle-field { position: absolute; inset: 0; }
