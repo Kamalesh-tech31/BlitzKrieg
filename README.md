@@ -24,15 +24,6 @@ Designed with a cinematic dark theme and premium red-black aesthetics, BlitzKrie
 
 ---
 
-## 🔐 Authentication System
-
-- User Registration
-- Login System
-- Local User Session
-- Modal-based authentication UI
-
----
-
 ## 🎨 Modern UI/UX
 
 - Premium futuristic dark interface
@@ -68,4 +59,5 @@ BlitzKrieg/
 ├── index.html
 ├── styles.css
 ├── script.js
+├── bg-shopping.png
 └── README.md
